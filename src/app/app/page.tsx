@@ -1,4 +1,5 @@
 import { auth } from '@/services/auth'
+import { UserInfo } from './_components/user-info'
 
 interface PageProps {
 
@@ -6,6 +7,8 @@ interface PageProps {
 export default async function Page(props : PageProps){
     const session = await auth()
     return(
-        <pre>{JSON.stringify(session?.user, 1)}</pre>
+        <main>
+            <UserInfo user={session?.user}/>
+        </main>
     )
 }
